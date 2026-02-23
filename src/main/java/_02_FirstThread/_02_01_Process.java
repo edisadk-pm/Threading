@@ -22,5 +22,16 @@ public class _02_01_Process {
         thread1.start(); //non-blocking
         thread2.start();
 
+
+        //some other mothods to combine:
+        //what is cool with streams is that they can be combined with threads:
+        Thread thread3 = new Thread(
+                () -> {
+                    //JOB
+                    for (int i = 0; i < 100_000; i++) {
+                        System.out.println("DatumsJob " + new java.util.Date());
+                    }
+                }
+        );
     }
 }
