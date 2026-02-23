@@ -28,10 +28,19 @@ public class _02_01_Process {
         Thread thread3 = new Thread(
                 () -> {
                     //JOB
-                    for (int i = 0; i < 100_000; i++) {
+                    for (int i = 0; i < 2_000_000_000; i++) { //max int is 2_147_483_647
                         System.out.println("DatumsJob " + new java.util.Date());
                     }
                 }
         );
+        thread3.start();
+
+        new Thread(
+                () -> {
+                    for (;;){
+                        System.out.println("Hello From the other side...");
+                    }
+                }
+        ).start();
     }
 }
